@@ -54,7 +54,7 @@ const Navbar = () => {
 
             {/* BOUTON APPEL RAPIDE (Note: On garde <a> pour tel: car c'est un lien externe au routeur) */}
             <div className="hidden md:block">
-               <a href="tel:+2126000000" className="flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase transition-all shadow-lg shadow-orange-900/20">
+               <a href="tel:06 22 89 29 16" className="flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase transition-all shadow-lg shadow-orange-900/20">
                   <Phone size={14} />
                   Contact d'urgence
                </a>
@@ -106,7 +106,7 @@ const Navbar = () => {
           </div>
 
           <div className="absolute bottom-10 w-full px-8">
-            <a href="tel:+2126000000" className="w-full flex items-center justify-center gap-3 bg-orange-600 text-white py-4 rounded-xl font-black uppercase tracking-tighter">
+            <a href="tel:06 22 89 29 16" className="w-full flex items-center justify-center gap-3 bg-orange-600 text-white py-4 rounded-xl font-black uppercase tracking-tighter">
               <Phone size={20} />
               Appeler Maintenant
             </a>
