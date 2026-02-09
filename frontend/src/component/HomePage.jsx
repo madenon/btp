@@ -180,7 +180,7 @@ const HomePage = () => {
           <div className="flex flex-col sm:flex-row gap-6 w-full justify-center">
             <a href="tel:06 22 89 29 16" className="flex items-center justify-center gap-4 bg-orange-600 px-12 py-6 rounded-2xl font-black text-xl uppercase tracking-tighter hover:bg-orange-700 transition-all shadow-2xl shadow-orange-600/20">
               <Phone size={28} className="animate-pulse" />
-              +212 600 000 000
+              06 22 89 29 16
             </a>
             <button className="bg-white text-slate-900 px-12 py-6 rounded-2xl font-black text-xl uppercase tracking-tighter border-b-8 border-slate-300 active:border-b-0 active:translate-y-1 transition-all">
               Demander Devis
