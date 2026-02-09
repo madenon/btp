@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Phone, HardHat } from 'lucide-react';
+import { Menu, X, Phone, HardHat, ChevronRight } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,16 +14,16 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed w-full z-50 bg-slate-900/95 backdrop-blur-md border-b border-orange-500/30">
+    <nav className="fixed w-full z-50 bg-slate-900/95 backdrop-blur-md border-b border-orange-500/30 font-montserrat">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* LOGO & NOM */}
+          {/* LOGO */}
           <div className="flex-shrink-0 flex items-center gap-2">
-            <div className="bg-orange-500 p-2 rounded-lg">
-              <HardHat className="text-white" size={24} />
+            <div className="bg-orange-500 p-1.5 rounded-lg">
+              <HardHat className="text-white" size={20} />
             </div>
-            <span className="text-white font-anton text-2xl tracking-wider uppercase">
+            <span className="text-white font-anton text-xl tracking-wider uppercase">
               Cyril <span className="text-orange-500">BTP</span>
             </span>
           </div>
@@ -32,62 +32,73 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-slate-300 hover:text-orange-500 font-montserrat text-sm font-bold uppercase tracking-widest transition-colors duration-300"
-                >
+                <a key={link.name} href={link.href} className="text-slate-300 hover:text-orange-500 text-xs font-bold uppercase tracking-widest transition-all">
                   {link.name}
                 </a>
               ))}
             </div>
           </div>
 
-          {/* BOUTON APPEL (CTA) */}
-          <div className="hidden md:block">
-            <a 
-              href="tel:+2126000000" 
-              className="flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5 rounded-xl font-poppins font-black italic transition-all transform hover:scale-105 shadow-lg shadow-orange-600/20"
-            >
-              <Phone size={18} />
-              URGENCE TRAVAUX
-            </a>
-          </div>
-
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE TOGGLE */}
           <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-orange-500 hover:text-white hover:bg-orange-600 focus:outline-none transition-all"
-            >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            <button onClick={() => setIsOpen(true)} className="text-orange-500 p-2">
+              <Menu size={32} />
             </button>
           </div>
         </div>
       </div>
 
-      {/* MOBILE MENU */}
-      {isOpen && (
-        <div className="md:hidden bg-slate-900 border-t border-orange-500/20 animate-in slide-in-from-top duration-300">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      {/* MOBILE DRAWER (MENU LATÉRAL) */}
+      <div className={`fixed inset-0 z-[60] transform ${isOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 ease-in-out md:hidden`}>
+        
+        {/* Overlay sombre */}
+        <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
+
+        {/* Menu Content */}
+        <div className="absolute right-0 h-full w-[80%] max-w-sm bg-white shadow-2xl flex flex-col">
+          
+          {/* Header du Menu */}
+          <div className="p-6 flex justify-between items-center border-b border-slate-100">
+            <span className="font-anton text-slate-900 text-xl uppercase">Menu</span>
+            <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-orange-500 transition-colors">
+              <X size={28} />
+            </button>
+          </div>
+
+          {/* Liens de Navigation */}
+          <div className="flex-1 overflow-y-auto py-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-3 py-4 text-slate-300 hover:text-orange-500 font-montserrat font-bold text-center border-b border-white/5"
                 onClick={() => setIsOpen(false)}
+                className="flex items-center justify-between px-8 py-5 text-slate-700 font-bold uppercase tracking-widest border-b border-slate-50 hover:bg-orange-50 hover:text-orange-600 transition-all"
               >
                 {link.name}
+                <ChevronRight size={18} className="text-slate-300" />
               </a>
             ))}
-            <div className="p-4">
-              <button className="w-full bg-orange-600 text-white py-4 rounded-xl font-black italic uppercase">
-                Appeler Maintenant
-              </button>
+            
+            <div className="px-8 py-6 text-orange-600 font-black italic uppercase">
+              Espace Admin
             </div>
           </div>
+
+          {/* Footer du Menu (Appel) */}
+          <div className="p-8 bg-slate-50">
+            <a 
+              href="tel:+2126000000"
+              className="flex items-center justify-center gap-3 bg-orange-600 text-white w-full py-4 rounded-xl font-bold uppercase shadow-lg shadow-orange-600/30"
+            >
+              <Phone size={20} />
+              Nous Appeler
+            </a>
+            <p className="text-center text-[10px] text-slate-400 mt-4 uppercase tracking-tighter">
+              Disponible 24h/7j pour urgences
+            </p>
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
