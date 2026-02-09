@@ -3,17 +3,12 @@ import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden"> 
-      {/* La Navbar est fixed, elle ne prend pas de place dans le flux */}
+    <div className="min-h-screen flex flex-col bg-white"> 
       <Navbar />
-
-      {/* On ajoute un padding-top (pt-20) pour compenser la hauteur de la Navbar fixed (h-20) 
-          Sinon le haut de votre HomePage sera caché sous la barre bleue.
-      */}
-      <main className="flex-grow pt-20">
+      {/* pt-20 correspond à la hauteur h-20 de la navbar */}
+      <main className="flex-grow pt-20 relative z-0">
         {children}
       </main>
-
       <Footer />
     </div>
   );
