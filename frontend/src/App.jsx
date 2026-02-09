@@ -5,6 +5,7 @@ import Layout from './component/layout/Layout';
 import Realisation from './pages/Realisation';
 import Contact from './pages/Contact';
 import About from './component/About';
+import Service from './pages/Service';
 
 
 const PageLoader = () => (
@@ -30,6 +31,7 @@ const App = () => {
               <Route path="/" element={<HomePage />} />
               <Route path="/realisations" element={<Realisation />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/services" element={<Service />} />
               <Route path="/a-propos" element={<About />} />
             </Routes>
             </Layout>
