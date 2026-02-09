@@ -3,17 +3,20 @@ import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
   return (
-    // "relative" ici aide à stabiliser les enfants fixed/sticky
-    <div className="min-h-screen flex flex-col bg-white relative"> 
+    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden"> 
+      {/* La Navbar est fixed, elle ne prend pas de place dans le flux */}
       <Navbar />
-      {/* On ajoute "relative z-0" au main pour s'assurer que TOUT le contenu 
-          de la page reste dans une couche inférieure à la Navbar (z-1000)
+
+      {/* On ajoute un padding-top (pt-20) pour compenser la hauteur de la Navbar fixed (h-20) 
+          Sinon le haut de votre HomePage sera caché sous la barre bleue.
       */}
-      <main className="w-full relative z-0">
+      <main className="flex-grow pt-20">
         {children}
       </main>
+
       <Footer />
     </div>
   );
 };
+
 export default Layout;
