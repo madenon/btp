@@ -76,7 +76,7 @@ const HomePage = () => {
               <span className="text-orange-500">par Cyril</span>
             </h1>
             <p className="text-xl font-medium text-slate-300 max-w-xl italic">
-              "Du terrassement à la démolition, nous bâtissons l'avenir avec précision et rigueur."
+              "Du terrassement à la démolition, expertise et securité "
             </p>
             <div className="flex flex-wrap gap-4 pt-6 justify-center md:justify-start">
               <button className="bg-orange-600 hover:bg-orange-700 text-white px-10 py-5 rounded-xl font-black uppercase tracking-widest transition-all transform hover:scale-105 shadow-xl shadow-orange-600/30 flex items-center gap-3">

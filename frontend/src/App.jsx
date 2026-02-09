@@ -2,6 +2,9 @@ import React, { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './component/HomePage';
 import Layout from './component/layout/Layout';
+import Realisation from './pages/Realisation';
+import Contact from './pages/Contact';
+import About from './component/About';
 
 
 const PageLoader = () => (
@@ -25,6 +28,9 @@ const App = () => {
               {/* <Header /> */}
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/realisations" element={<Realisation />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/a-propos" element={<About />} />
             </Routes>
             </Layout>
           }

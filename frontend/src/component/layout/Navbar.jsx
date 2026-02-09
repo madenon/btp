@@ -1,27 +1,29 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Importation du composant Link
 import { Menu, X, Phone, ChevronRight } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Mise à jour des chemins (href -> to)
   const navLinks = [
-    { name: 'Accueil', href: '/' },
-    { name: 'À propos', href: '#' },
-    { name: 'Services', href: '#' },
-    { name: 'Devis', href: '#' },
-    { name: 'Emploi', href: '#' },
-    { name: 'Contact', href: '#' },
+    { name: 'Accueil', to: '/' },
+    { name: 'À propos', to: '/a-propos' },
+    { name: 'Services', to: '/services' },
+    { name: 'Devis', to: '/devis' },
+    { name: 'Nos Réalisations', to: '/realisations' },
+    { name: 'Contact', to: '/contact' },
   ];
 
   return (
     <>
-      {/* BARRE DE NAVIGATION - Look Steel & Industrial */}
+      {/* BARRE DE NAVIGATION */}
       <nav className="fixed top-0 left-0 w-full z-[100] bg-[#1e293b] border-b border-orange-500/30 shadow-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             
-            {/* SECTION LOGO */}
-            <div className="flex items-center gap-4 group cursor-pointer">
+            {/* SECTION LOGO (Utilisation de Link pour revenir à l'accueil) */}
+            <Link to="/" className="flex items-center gap-4 group cursor-pointer">
               <div className="h-12 w-12 flex items-center justify-center p-1.5 bg-white rounded-lg shadow-inner transform group-hover:rotate-3 transition-transform">
                 <img 
                   src="/logo2.png" 
@@ -35,22 +37,22 @@ const Navbar = () => {
                 </span>
                 <span className="text-[10px] text-slate-400 font-bold tracking-[0.2em] uppercase mt-1">Construction & Rénovation</span>
               </div>
-            </div>
+            </Link>
 
-            {/* LIENS DESKTOP - Gris clair vers Orange */}
+            {/* LIENS DESKTOP */}
             <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
-                <a 
+                <Link 
                   key={link.name} 
-                  href={link.href} 
+                  to={link.to} 
                   className="text-slate-300 hover:text-orange-500 text-xs font-black uppercase tracking-widest transition-colors duration-200"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
 
-            {/* BOUTON APPEL RAPIDE (Visible sur Desktop) */}
+            {/* BOUTON APPEL RAPIDE (Note: On garde <a> pour tel: car c'est un lien externe au routeur) */}
             <div className="hidden md:block">
                <a href="tel:+2126000000" className="flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase transition-all shadow-lg shadow-orange-900/20">
                   <Phone size={14} />
@@ -89,9 +91,9 @@ const Navbar = () => {
 
           <div className="flex flex-col py-6">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.to}
                 onClick={() => setIsOpen(false)}
                 className="px-8 py-4 flex items-center justify-between border-b border-slate-800/50 hover:bg-slate-800/50 transition-all"
               >
@@ -99,7 +101,7 @@ const Navbar = () => {
                   {link.name}
                 </span>
                 <ChevronRight size={18} className="text-orange-500" />
-              </a>
+              </Link>
             ))}
           </div>
 
