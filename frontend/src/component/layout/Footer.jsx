@@ -1,14 +1,14 @@
 import React from 'react';
 import { 
   Facebook, Instagram, Linkedin, Mail, 
-  MapPin, Phone, ArrowRight, ShieldCheck, Clock 
+  MapPin, Phone, ShieldCheck, Clock, Hash, Twitter
 } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0f172a] text-slate-400 pt-20 pb-8 border-t border-white/5 font-montserrat relative overflow-hidden">
+    <footer className="bg-[#0a0f1d] text-slate-400 pt-20 pb-8 border-t border-white/5 font-montserrat relative overflow-hidden">
       {/* Accent de couleur décoratif en arrière-plan */}
       <div className="absolute top-0 left-1/4 w-64 h-64 bg-orange-600/5 blur-[120px] rounded-full"></div>
 
@@ -30,13 +30,13 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-sm leading-relaxed font-medium">
-              Référence dans le secteur du bâtiment et des travaux publics. 
-              Nous combinons savoir-faire artisanal et technologies modernes pour des ouvrages durables.
+              Expertise en démolition, terrassement et rénovation. 
+              Nous bâtissons vos projets avec la rigueur et la sécurité d'un artisan passionné.
             </p>
             <div className="flex gap-3">
-              {[Facebook, Instagram, Linkedin].map((Icon, idx) => (
+              {[Facebook, Instagram, Twitter].map((Icon, idx) => (
                 <a key={idx} href="#" className="p-3 bg-slate-800/50 border border-white/5 rounded-xl hover:bg-orange-600 hover:text-white hover:-translate-y-1 transition-all duration-300">
-                  <Icon size={20} />
+                  <Icon size={18} />
                 </a>
               ))}
             </div>
@@ -52,8 +52,7 @@ const Footer = () => {
                 'Démolition de précision',
                 'Terrassement massif',
                 'Aménagement extérieur',
-                'Gros œuvre & Maçonnerie',
-                'Rénovation industrielle'
+                'Gros œuvre & Maçonnerie'
               ].map((service) => (
                 <li key={service} className="flex items-center gap-3 text-sm hover:text-orange-400 transition-colors cursor-pointer group">
                   <div className="w-1.5 h-1.5 rounded-full bg-orange-600 group-hover:scale-150 transition-transform"></div>
@@ -77,10 +76,10 @@ const Footer = () => {
                 </div>
               </li>
               <li className="flex gap-4">
-                <ShieldCheck className="text-orange-500 shrink-0" size={20} />
+                <Hash className="text-orange-500 shrink-0" size={20} />
                 <div className="text-sm">
-                  <p className="text-white font-bold">Certification</p>
-                  <p className="mt-1">Normes Qualité & Sécurité ISO</p>
+                  <p className="text-white font-bold">Identification</p>
+                  <p className="mt-1 italic">SIRET: 494 262 371</p>
                 </div>
               </li>
             </ul>
@@ -91,24 +90,24 @@ const Footer = () => {
             <h3 className="text-white font-bold uppercase tracking-widest mb-8 text-xs flex items-center gap-2">
               <span className="w-8 h-px bg-orange-500"></span> Contact Direct
             </h3>
-            <div className="bg-slate-800/30 border border-white/5 rounded-2xl p-6 space-y-4">
-              <a href="tel:+2126000000" className="flex items-center gap-4 group">
+            <div className="bg-slate-900/50 border border-white/5 rounded-2xl p-6 space-y-4">
+              <a href="tel:+33622892916" className="flex items-center gap-4 group">
                 <div className="h-10 w-10 flex items-center justify-center bg-orange-600/10 text-orange-500 rounded-lg group-hover:bg-orange-600 group-hover:text-white transition-all">
                   <Phone size={18} />
                 </div>
-                <span className="text-sm font-bold text-slate-200">+212 600 000 000</span>
+                <span className="text-sm font-bold text-slate-200">06 22 89 29 16</span>
               </a>
-              <a href="mailto:contact@cyrilbtp.com" className="flex items-center gap-4 group">
+              <a href="mailto:cyrilbenony@gmail.com" className="flex items-center gap-4 group">
                 <div className="h-10 w-10 flex items-center justify-center bg-orange-600/10 text-orange-500 rounded-lg group-hover:bg-orange-600 group-hover:text-white transition-all">
                   <Mail size={18} />
                 </div>
-                <span className="text-sm font-bold text-slate-200">contact@cyrilbtp.com</span>
+                <span className="text-xs font-bold text-slate-200 break-all">cyrilbenony@gmail.com</span>
               </a>
               <div className="flex items-start gap-4">
                 <div className="h-10 w-10 flex items-center justify-center bg-orange-600/10 text-orange-500 rounded-lg shrink-0">
                   <MapPin size={18} />
                 </div>
-                <span className="text-xs leading-relaxed">123 Boulevard des Entreprises,<br /> Casablanca, Maroc</span>
+                <span className="text-xs leading-relaxed">33380 Marcheprime,<br /> France</span>
               </div>
             </div>
           </div>
@@ -116,11 +115,13 @@ const Footer = () => {
 
         {/* BOTTOM BAR */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-slate-500">
-            © {currentYear} <span className="text-slate-400">Cyril BTP</span> - Propulsion Digitale
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">
+            © {currentYear} <span className="text-slate-400">Cyril BTP</span> - Tous droits réservés
           </p>
-          <div className="flex gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
-            <a href="#" className="hover:text-orange-500 transition-colors">Politique de confidentialité</a>
+          <div className="flex flex-wrap justify-center gap-6 text-[10px] font-bold uppercase tracking-widest text-slate-500">
+            <a href="#" className="hover:text-orange-500 transition-colors">Confidentialité</a>
+            <a href="#" className="hover:text-orange-500 transition-colors">Accessibilité</a>
+            <a href="#" className="hover:text-orange-500 transition-colors">Conditions</a>
             <a href="#" className="hover:text-orange-500 transition-colors">Mentions Légales</a>
           </div>
         </div>
