@@ -22,22 +22,37 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             
-            {/* SECTION LOGO (Utilisation de Link pour revenir à l'accueil) */}
-            <Link to="/" className="flex items-center gap-4 group cursor-pointer">
-              <div className="h-12 w-12 flex items-center justify-center p-1.5 bg-white rounded-lg shadow-inner transform group-hover:rotate-3 transition-transform">
-                <img 
-                  src="/logo2.png" 
-                  alt="Cyril BTP" 
-                  className="h-full w-full object-contain" 
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white font-anton text-2xl leading-none uppercase tracking-tight">
-                  Cyril <span className="text-orange-500">BTP</span>
-                </span>
-                <span className="text-[10px] text-slate-400 font-bold tracking-[0.2em] uppercase mt-1">Construction & Rénovation</span>
-              </div>
-            </Link>
+          {/* SECTION LOGO - STYLE PREMIUM BADGE */}
+<Link to="/" className="flex items-center gap-4 group cursor-pointer relative">
+  {/* Le "Badge" blanc qui fait ressortir le logo noir */}
+  <div className="relative h-14 w-14 sm:h-16 sm:w-16 flex items-center justify-center bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-slate-100 transform group-hover:-translate-y-1 group-hover:rotate-2 transition-all duration-300 ease-out overflow-hidden">
+    <img 
+      src="/logo2.png" 
+      alt="Cyril BTP" 
+      className="h-full w-full object-cover scale-110" // On scale un peu pour supprimer les bords de l'image d'origine
+    />
+    {/* Effet de brillance au survol */}
+    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+  </div>
+
+  {/* Texte avec typographie retravaillée */}
+  <div className="flex flex-col">
+    <div className="flex items-baseline gap-1">
+      <span className="text-white font-anton text-3xl leading-none uppercase tracking-tight group-hover:text-orange-500 transition-colors">
+        Cyril
+      </span>
+      <span className="text-orange-500 font-anton text-3xl leading-none uppercase tracking-tight">
+        BTP
+      </span>
+    </div>
+    <div className="flex items-center gap-2 mt-1.5">
+      <span className="h-[1px] w-4 bg-orange-500/50"></span>
+      <span className="text-[9px] text-slate-400 font-black uppercase tracking-[0.25em] whitespace-nowrap">
+        Construction & Rénovation
+      </span>
+    </div>
+  </div>
+</Link>
 
             {/* LIENS DESKTOP */}
             <div className="hidden md:flex items-center space-x-8">
