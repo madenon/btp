@@ -5,7 +5,7 @@ import { Menu, X, Phone, ChevronRight } from 'lucide-react';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Mise à jour des chemins (href -> to)
+  // Mise à jour des chemins (hreHf -> to)
   const navLinks = [
     { name: 'Accueil', to: '/' },
     { name: 'À propos', to: '/a-propos' },

@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const Realisation = () => {
-  // Liste mise à jour avec tes fichiers locaux i1.png à i6.png
+  // SEO : Change le titre de l'onglet quand la page est chargée
+  useEffect(() => {
+    document.title = "Nos Réalisations | Cyril BTP - Expert Construction & Rénovation";
+  }, []);
+
+  // Liste de tes 6 projets avec images locales i1.png à i6.png
   const projets = [
     { 
       id: 1, 
@@ -49,74 +54,90 @@ const Realisation = () => {
   ];
 
   return (
-    <section className="min-h-screen pt-24 pb-20 bg-white px-4 overflow-hidden">
+    <section className="min-h-screen pt-32 pb-24 bg-[#FCFCFD] px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* EN-TÊTE DE SECTION */}
         <motion.div 
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-7"
         >
-          <h2 className="font-anton text-5xl md:text-7xl text-[#1e293b] uppercase tracking-tighter">
-            Nos <span className="text-orange-500">Réalisations</span>
+          <span className="text-orange-600 font-black uppercase tracking-[0.5em] text-xs mb-4 block">
+            Portfolio
+          </span>
+          <h2 className="font-anton text-4xl md:text-3xl text-[#1e293b] uppercase tracking-tighter leading-none italic">
+            Nos <span className="text-orange-500">Chantiers</span>
           </h2>
-          <div className="w-24 h-2 bg-orange-500 mx-auto mt-4"></div>
-          <p className="mt-6 text-slate-500 font-roboto uppercase tracking-widest text-sm">L'excellence au service de vos projets</p>
+          <div className="w-24 h-2 bg-orange-500 mx-auto mt-8 mb-6"></div>
+          <p className="max-w-2xl mx-auto text-slate-500 font-medium text-lg italic leading-relaxed">
+            "De la conception à la livraison, découvrez notre savoir-faire à travers nos projets les plus ambitieux."
+          </p>
         </motion.div>
 
         {/* CONTENEUR DES PROJETS */}
-        <div className="flex flex-col gap-24 md:gap-40">
+        <div className="flex flex-col gap-32 md:gap-56">
           {projets.map((projet, index) => {
             const isEven = index % 2 === 0;
 
             return (
               <motion.div
                 key={projet.id}
-                initial={{ opacity: 0, x: isEven ? -100 : 100 }}
+                initial={{ opacity: 0, x: isEven ? -80 : 80 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-10 md:gap-20`}
+                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }} // Ease-out quint pour plus de luxe
+                className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-24`}
               >
                 
-                {/* BLOC IMAGE */}
-                <div className="w-full md:w-1/2 group relative">
-                  <div className="overflow-hidden rounded-2xl shadow-2xl bg-slate-100 aspect-video relative z-20 border border-slate-100">
-                    <div className="absolute inset-0 bg-orange-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                {/* BLOC IMAGE AVEC EFFET HOVER AVANCÉ */}
+                <div className="w-full md:w-3/5 group relative">
+                  <div className="overflow-hidden rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] bg-slate-200 aspect-video relative z-20 border border-slate-100">
+                    <div className="absolute inset-0 bg-orange-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"></div>
                     <img 
                       src={projet.img} 
-                      alt={projet.titre}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                      alt={`Projet Cyril BTP : ${projet.titre}`}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1500ms] ease-out"
                     />
                   </div>
-                  <div className={`absolute -bottom-6 ${isEven ? '-right-6' : '-left-6'} w-32 h-32 bg-orange-500/10 rounded-full blur-3xl -z-10`}></div>
+                  
+                  {/* Décoration géométrique derrière l'image */}
+                  <div className={`absolute -bottom-10 ${isEven ? '-right-10' : '-left-10'} w-48 h-48 bg-orange-500/5 rounded-full blur-3xl -z-10 group-hover:bg-orange-500/10 transition-colors duration-700`}></div>
                 </div>
 
-                {/* BLOC TEXTE */}
-                <div className="w-full md:w-1/2 space-y-6">
-                  <div className="space-y-2">
-                    <span className="inline-block text-orange-500 font-black uppercase tracking-[0.4em] text-xs px-3 py-1 border border-orange-500/20 rounded-full">
-                      {projet.cat}
-                    </span>
-                    <h3 className="font-anton text-4xl md:text-5xl text-[#1e293b] uppercase leading-none">
+                {/* BLOC TEXTE CONTENU */}
+                <div className="w-full md:w-2/5 space-y-8">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4">
+                      <span className="h-[2px] w-12 bg-orange-500"></span>
+                      <span className="text-orange-500 font-black uppercase tracking-[0.3em] text-[11px]">
+                        {projet.cat}
+                      </span>
+                    </div>
+                    <h3 className="font-anton text-5xl md:text-6xl text-[#1e293b] uppercase leading-[0.9] tracking-tighter transition-colors group-hover:text-orange-500">
                       {projet.titre}
                     </h3>
                   </div>
                   
-                  <p className="text-slate-600 font-roboto leading-relaxed text-lg max-w-xl italic border-l-4 border-orange-500 pl-6 bg-slate-50 py-4 rounded-r-xl">
-                    "{projet.desc}"
-                  </p>
+                  <div className="relative">
+                    <p className="text-slate-600 font-roboto leading-relaxed text-xl italic border-l-4 border-orange-500/30 pl-8 bg-slate-50/50 py-6 rounded-r-2xl shadow-sm">
+                      "{projet.desc}"
+                    </p>
+                  </div>
 
                   <motion.button
-                    whileHover={{ x: 10 }}
-                    className="flex items-center gap-4 text-[#1e293b] font-black uppercase text-sm group"
+                    whileHover={{ x: 15 }}
+                    className="flex items-center gap-6 text-[#1e293b] font-black uppercase text-xs tracking-[0.2em] group"
                   >
-                    <span className="bg-[#1e293b] text-white w-10 h-10 flex items-center justify-center rounded-full group-hover:bg-orange-500 transition-colors">
-                      {projet.id}
+                    <span className="bg-[#1e293b] text-white w-12 h-12 flex items-center justify-center rounded-2xl rotate-45 group-hover:rotate-0 group-hover:bg-orange-500 group-hover:rounded-full transition-all duration-500">
+                      <span className="-rotate-45 group-hover:rotate-0 transition-transform duration-500 text-lg">
+                        {projet.id}
+                      </span>
                     </span>
-                    <span className="border-b-2 border-orange-500 pb-1">Détails du chantier</span>
+                    <span className="border-b-2 border-transparent group-hover:border-orange-500 pb-1 transition-all">
+                      En savoir plus sur ce chantier
+                    </span>
                   </motion.button>
                 </div>
 

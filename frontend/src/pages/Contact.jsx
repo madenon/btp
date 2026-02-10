@@ -27,13 +27,13 @@ const Contact = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-24"
+          className="text-center mb-8"
         >
           <span className="text-orange-600 font-bold uppercase tracking-[0.5em] text-[10px] mb-6 block">
             Disponibilité & Réactivité
           </span>
           
-          <h2 className="font-anton text-6xl md:text-8xl leading-[0.85] uppercase tracking-tighter text-[#0a0f1d] italic">
+          <h2 className="font-anton text-4xl md:text-3xl leading-[0.85] uppercase tracking-tighter text-[#0a0f1d] italic">
             Lancez votre <br />
             <span className="text-orange-500 relative inline-block mt-2">
                 Chantier
