@@ -69,7 +69,7 @@ const HomePage = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-6xl md:text-[110px] font-anton uppercase leading-[0.85] tracking-tighter italic"
+              className="text-3xl md:text-2xl font-anton uppercase leading-[0.85] tracking-tighter italic"
             >
               Travaux BTP <br />
               <span className="text-orange-500">à Marcheprime</span>
