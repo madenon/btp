@@ -20,7 +20,7 @@ const Footer = () => {
             <div className="flex items-center gap-3">
               <div className="h-12 w-12 flex items-center justify-center p-1.5 bg-white rounded-xl shadow-lg">
                 <img 
-                  src="/logo2.png" 
+                  src="/lg.png" 
                   alt="Cyril BTP" 
                   className="h-full w-full object-contain" 
                 />
