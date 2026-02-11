@@ -26,7 +26,7 @@ const Navbar = () => {
   {/* Le "Badge" blanc qui fait ressortir le logo noir */}
   <div className="relative h-14 w-14 sm:h-16 sm:w-16 flex items-center justify-center bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-slate-100 transform group-hover:-translate-y-1 group-hover:rotate-2 transition-all duration-300 ease-out overflow-hidden">
     <img 
-      src="/logo2.png" 
+      src="/lg.png" 
       alt="Cyril BTP" 
       className="h-full w-full object-cover scale-110" // On scale un peu pour supprimer les bords de l'image d'origine
     />
